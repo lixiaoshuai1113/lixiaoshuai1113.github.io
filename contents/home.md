@@ -1,20 +1,16 @@
-[![XX](https://img.shields.io/badge/XX-github-blue?logo=github)](https://github.com/XX)
-
-I'm currently pursuing a Master's degree in XX at the Department of XX, XX University, XX.
+I'm currently pursuing a Master's degree in BUAA at the School of AI.
 
 #### Email  
-<code>XX@XX.XX</code>  
-<code>XX@XX.XX</code>
+
+<code>lswlswlsw@foxmail.com</code>  
+<code>ZY2442113@buaa.edu.cn</code>
 
 #### Education  
-**XX University**, Master of XX (XX – XX)  
-• GPA: XX/XX  
 
-**XX University**, Exchange student <br>  
-• As a XX, represented my college as an outstanding student for a XX exchange program.  
+**Beihang University**, Master of Artificial Intelligence, School of Artificial Intelligence (2024.9 – 2027.6)  
 
-**XX University**, Honours Bachelor of XX (XX – XX)  
-• GPA: XX/XX (top XX%)  
+**Beihang University**, Honours Bachelor of Transportation Engineering, School of Transportation Science and Engineering (2020.9 – 2024.6)   
 
 #### Research Interests  
-XX, XX, XX, XX.
+
+Large Language Models, Intelligent Agents, Game Theory, and their applications in complex systems.
