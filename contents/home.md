@@ -9,8 +9,8 @@ I'm currently pursuing a Master's degree in BUAA at the School of AI.
 
 **Beihang University**, Master of Artificial Intelligence, School of Artificial Intelligence (2024.9 – 2027.6)  
 
-**Beihang University**, Honours Bachelor of Transportation Engineering, School of Transportation Science and Engineering (2020.9 – 2024.6)   
+**Beihang University**, Bachelor of Transportation Engineering, School of Transportation Science and Engineering (2020.9 – 2024.6)   
 
 #### Research Interests  
 
-Large Language Models, Intelligent Agents, Game Theory, and their applications in complex systems.
+Large Language Models, LLM-based Agents, Game Theory.
