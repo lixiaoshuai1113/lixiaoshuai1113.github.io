@@ -3,7 +3,7 @@ I'm currently pursuing a Master's degree in BUAA at the School of AI.
 #### Email  
 
 <code>lswlswlsw@foxmail.com</code>  
-<code>ZY2442113@buaa.edu.cn</code>
+<code>siweili@buaa.edu.cn</code>
 
 #### Education  
 
@@ -14,3 +14,8 @@ I'm currently pursuing a Master's degree in BUAA at the School of AI.
 #### Research Interests  
 
 Large Language Models, LLM-based Agents, Game Theory.
+
+#### Personal Links
+
+[GitHub 主页](https://github.com/lixiaoshuai1113)
+[Bilibili 空间](https://space.bilibili.com/176404587?spm_id_from=333.1007.0.0)
