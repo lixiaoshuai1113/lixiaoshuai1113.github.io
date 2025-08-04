@@ -20,3 +20,7 @@ Large Language Models, LLM-based Agents, Game Theory 🤖
 
 [GitHub 主页](https://github.com/lixiaoshuai1113)<br>
 [Bilibili 空间](https://space.bilibili.com/176404587?spm_id_from=333.1007.0.0)
+
+---
+
+不少人就是在无法选择中失去了重要的发展机会，有的人是因为过早选择而失去发展的机会。
