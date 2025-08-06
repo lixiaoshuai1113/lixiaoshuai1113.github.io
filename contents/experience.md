@@ -12,13 +12,13 @@
 
 🔧 **PROJECTS**
 
-- 🤖 **Vision-Language Model (VLM) Replication and Engineering | Apr 2025 - Mar 2025**
+- 🧠 **Vision-Language Model (VLM) Replication and Engineering | Apr 2025 - Mar 2025**
   - Led the end-to-end replication of the R1-V project, successfully executing Supervised Fine-Tuning (SFT) and GRPO reinforcement learning on the Qwen2.5-VL-7B model.
   - Engineered a multi-GPU, multi-node distributed training environment with DeepSpeed, achieving efficient resource scheduling and significantly improving training throughput.
   - Systematically tuned key hyperparameters, including learning rate and batch size, to optimize the trade-off between training speed, model accuracy, and GPU memory consumption.
 
 
-- 🚗 **LLM Fine-tuning and Mechanism Analysis | Jan 2025 - Feb 2025**
+- 🧬 **LLM Fine-tuning and Mechanism Analysis | Jan 2025 - Feb 2025**
   - Executed both LoRA and full-parameter fine-tuning on leading LLMs (Llama2-7B, Llama3.1-8B) across a diverse range of datasets spanning reasoning, sentiment analysis, mathematics, and code generation.
   - Conducted an in-depth analysis of LoRA by systematically adjusting its core parameters (e.g., rank, target modules) to quantitatively evaluate their impact on model performance and optimize fine-tuning efficiency.
   - Investigated the internal mechanisms of fine-tuned models by analyzing layer-wise activation differences, successfully identifying specific layers critical to performance gains and revealing the correlation between parameter adjustments and model capabilities.

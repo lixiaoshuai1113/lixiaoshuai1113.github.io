@@ -14,7 +14,7 @@ I'm currently pursuing a Master's degree in BUAA at the School of AI
 
 #### 🔬 **Research Interests**  
 
-Large Language Models, LLM-based Agents, Game Theory 🤖
+Large Language Models, LLM-based Agents, Game Theory 
 
 #### 🌟 **Personal Links**
 
