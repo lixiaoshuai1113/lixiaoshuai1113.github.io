@@ -3,7 +3,7 @@
 - 🤖 **Intime AI | Algorithm Intern | May 2025 - August 2025**
   - **LLM-Powered 3D Asset Generation**:Proposed LangMesh, a novel framework leveraging LLMs to interpret natural language and automatically generate complex, editable 3D assets in Blender.
   - **Multi-LLM Agent System for 3D Modeling**:Engineered a collaborative system where different LLMs perform distinct roles: one LLM creates a scene graph for planning, another generates code, and a Vision-Language Model (VLM) autonomously verifies the output for iterative refinement.
-  - **Benchmark for Evaluating LLMs in 3D Generation**:Created BlenderBench, the first comprehensive benchmark to systematically assess the 3D code generation and spatial reasoning capabilities of Large Language Models in a Blender environment.
+  - **Benchmark for Evaluating LLMs in 3D Generation**:Created the first comprehensive benchmark to systematically assess the 3D code generation and spatial reasoning capabilities of Large Language Models in a Blender environment.
 
 
 - 🚗 **Jingwei Hirain | Algorithm Intern | July 2023 - July 2023**
@@ -22,3 +22,7 @@
   - Executed both LoRA and full-parameter fine-tuning on leading LLMs (Llama2-7B, Llama3.1-8B) across a diverse range of datasets spanning reasoning, sentiment analysis, mathematics, and code generation.
   - Conducted an in-depth analysis of LoRA by systematically adjusting its core parameters (e.g., rank, target modules) to quantitatively evaluate their impact on model performance and optimize fine-tuning efficiency.
   - Investigated the internal mechanisms of fine-tuned models by analyzing layer-wise activation differences, successfully identifying specific layers critical to performance gains and revealing the correlation between parameter adjustments and model capabilities.
+
+---
+
+大部分时间都在摸鱼啊嗯🏄‍
