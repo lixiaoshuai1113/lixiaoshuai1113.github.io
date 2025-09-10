@@ -12,7 +12,7 @@
 
 🔧 **PROJECTS**
 
-- 🧠 **Vision-Language Model (VLM) Replication and Engineering | Apr 2025 - Mar 2025**
+- 🧠 **Vision-Language Model (VLM) Replication and Engineering | Mar 2025 - Apr 2025**
   - Led the end-to-end replication of the R1-V project, successfully executing Supervised Fine-Tuning (SFT) and GRPO reinforcement learning on the Qwen2.5-VL-7B model.
   - Engineered a multi-GPU, multi-node distributed training environment with DeepSpeed, achieving efficient resource scheduling and significantly improving training throughput.
   - Systematically tuned key hyperparameters, including learning rate and batch size, to optimize the trade-off between training speed, model accuracy, and GPU memory consumption.

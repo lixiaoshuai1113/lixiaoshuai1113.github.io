@@ -1,6 +1,8 @@
 #### 🚀 **Hello World!** 
 I'm currently pursuing a Master's degree in BUAA at the School of AI
 
+我正在北航人工智能学院攻读硕士学位
+
 #### 📧 **Mail**  
 
 <code>lswlswlsw@foxmail.com</code>  
