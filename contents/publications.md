@@ -1,8 +1,3 @@
 📚 **Publications**
 
-- **LangMesh: Language-Driven Stepwise Asset Modeling and Benchmarking in Blender**  
-  - *Authors: Chun Kang, **Siwei Li**, Yanbin Wei, Dayou Zhou, Yunlong Jia, Kaiqi Zhang, Lei Sha, Deshen Wang*
-
----
-
-难产... 🚀 
+- 暂时隐藏
