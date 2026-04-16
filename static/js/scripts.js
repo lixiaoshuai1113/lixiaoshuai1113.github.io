@@ -1,109 +1,47 @@
 const content_dir = 'contents/'
 const config_file = 'config.yml'
-const section_names = ['home', 'awards', 'experience', 'publications'];
+const section_names = ['home', 'publications', 'experience', 'awards'];
 
-// 粒子动画系统
-class ParticleSystem {
+// Neo-Brutalist Custom Cursor
+class NeoCursor {
     constructor() {
-        this.particles = [];
-        this.container = document.createElement('div');
-        this.container.className = 'particles-container';
-        document.body.appendChild(this.container);
-        this.init();
-    }
-
-    init() {
-        for (let i = 0; i < 50; i++) {
-            this.createParticle();
-        }
-    }
-
-    createParticle() {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 6 + 's';
-        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        this.container.appendChild(particle);
-        this.particles.push(particle);
-    }
-}
-
-// 滚动动画观察器
-class ScrollAnimations {
-    constructor() {
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-    }
-
-    observe() {
-        document.querySelectorAll('section').forEach(section => {
-            this.observer.observe(section);
-        });
-    }
-}
-
-// 鼠标跟随效果
-class MouseFollower {
-    constructor() {
-        this.cursor = document.createElement('div');
-        this.cursor.className = 'mouse-cursor';
-        this.cursor.style.cssText = `
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(45deg, #ff6b9d, #4ecdc4);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-            mix-blend-mode: difference;
-        `;
-        document.body.appendChild(this.cursor);
+        this.cursor = document.querySelector('.custom-cursor');
         this.init();
     }
 
     init() {
         document.addEventListener('mousemove', (e) => {
-            this.cursor.style.left = e.clientX - 10 + 'px';
-            this.cursor.style.top = e.clientY - 10 + 'px';
+            if (this.cursor) {
+                this.cursor.style.left = e.clientX + 'px';
+                this.cursor.style.top = e.clientY + 'px';
+            }
         });
 
-        document.addEventListener('mouseenter', () => {
-            this.cursor.style.transform = 'scale(1)';
+        document.addEventListener('mousedown', () => {
+            if (this.cursor) this.cursor.style.transform = 'translate(-50%, -50%) rotate(45deg) scale(0.8)';
         });
 
-        document.addEventListener('mouseleave', () => {
-            this.cursor.style.transform = 'scale(0)';
+        document.addEventListener('mouseup', () => {
+            if (this.cursor) this.cursor.style.transform = 'translate(-50%, -50%) rotate(45deg) scale(1)';
         });
 
-        // 链接悬停效果
+        // Hover effect for links and buttons
+        const hoverables = 'a, button, .nav-link, #avatar img';
         document.addEventListener('mouseover', (e) => {
-            if (e.target.tagName === 'A') {
-                this.cursor.style.transform = 'scale(2)';
-                this.cursor.style.background = 'linear-gradient(45deg, #a55eea, #26de81)';
+            if (e.target.closest(hoverables)) {
+                if (this.cursor) this.cursor.classList.add('hover');
             }
         });
 
         document.addEventListener('mouseout', (e) => {
-            if (e.target.tagName === 'A') {
-                this.cursor.style.transform = 'scale(1)';
-                this.cursor.style.background = 'linear-gradient(45deg, #ff6b9d, #4ecdc4)';
+            if (e.target.closest(hoverables)) {
+                if (this.cursor) this.cursor.classList.remove('hover');
             }
         });
     }
 }
 
-// 打字机效果
+// Typewriter Effect
 class Typewriter {
     constructor(element, text, speed = 100) {
         this.element = element;
@@ -133,21 +71,24 @@ class Typewriter {
 
 window.addEventListener('DOMContentLoaded', event => {
 
-    // 初始化特效
-    new ParticleSystem();
-    new MouseFollower();
-    const scrollAnimations = new ScrollAnimations();
+    // Initialize Neo-Brutalist Cursor
+    new NeoCursor();
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            offset: 74,
-        });
-    };
+    // Check if we are on detail page
+    const isDetailPage = window.location.pathname.includes('detail.html');
 
-    // Collapse responsive navbar when toggler is visible
+    // Activate Bootstrap scrollspy (only on home)
+    if (!isDetailPage) {
+        const mainNav = document.body.querySelector('#mainNav');
+        if (mainNav) {
+            new bootstrap.ScrollSpy(document.body, {
+                target: '#mainNav',
+                offset: 100,
+            });
+        };
+    }
+
+    // Navbar Toggler
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
@@ -160,10 +101,7 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    // 添加滚动动画观察
-    scrollAnimations.observe();
-
-    // Yaml
+    // Load Config (Yaml) - Global for both pages
     fetch(content_dir + config_file)
         .then(response => response.text())
         .then(text => {
@@ -174,96 +112,116 @@ window.addEventListener('DOMContentLoaded', event => {
                     if (element) {
                         element.innerHTML = yml[key];
                         
-                        // 为标题添加打字机效果
-                        if (key === 'top-section-bg-text') {
-                            const typewriter = new Typewriter(element, yml[key], 150);
-                            setTimeout(() => typewriter.start(), 1000);
+                        // Hero Title Typewriter (Home only)
+                        if (key === 'top-section-bg-text' && !isDetailPage) {
+                            const typewriter = new Typewriter(element, yml[key], 100);
+                            setTimeout(() => typewriter.start(), 500);
                         }
                     }
-                } catch {
-                    console.log("Unknown id and value: " + key + "," + yml[key].toString())
+                } catch (err) {
+                    console.log("Error loading key: " + key, err)
                 }
             })
         })
         .catch(error => console.log(error));
 
-    // Marked
-    marked.use({ mangle: false, headerIds: false })
-    section_names.forEach((name, idx) => {
-        fetch(content_dir + name + '.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                const element = document.getElementById(name + '-md');
-                if (element) {
-                    element.innerHTML = html;
-                    element.classList.add('loading');
+    if (isDetailPage) {
+        // Detail Page Logic
+        const urlParams = new URLSearchParams(window.location.search);
+        const contentId = urlParams.get('id');
+        
+        if (contentId) {
+            fetch(`${content_dir}details/${contentId}.md`)
+                .then(response => {
+                    if (!response.ok) throw new Error('File not found');
+                    return response.text();
+                })
+                .then(markdown => {
+                    marked.use({ mangle: false, headerIds: false });
+                    const html = marked.parse(markdown);
+                    const contentEl = document.getElementById('detail-content');
+                    const headerEl = document.getElementById('detail-header');
+                    const titleEl = document.getElementById('detail-title');
+
+                    if (contentEl) contentEl.innerHTML = html;
                     
-                    // 为每个section添加进入动画
-                    setTimeout(() => {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }, idx * 200);
-                }
-            }).then(() => {
-                // MathJax
-                MathJax.typeset();
-            })
-            .catch(error => console.log(error));
-    });
+                    // Extract first H1 as title
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+                    const h1 = tempDiv.querySelector('h1');
+                    if (h1) {
+                        const titleText = h1.textContent;
+                        if (headerEl) headerEl.textContent = titleText;
+                        if (titleEl) titleEl.textContent = titleText;
+                        h1.remove(); // Remove duplicate title from content
+                        if (contentEl) contentEl.innerHTML = tempDiv.innerHTML;
+                    }
 
-    // 添加键盘快捷键
-    document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey || e.metaKey) {
-            switch(e.key) {
-                case '1':
-                    e.preventDefault();
-                    document.querySelector('a[href="#home"]').click();
-                    break;
-                case '2':
-                    e.preventDefault();
-                    document.querySelector('a[href="#awards"]').click();
-                    break;
-                case '3':
-                    e.preventDefault();
-                    document.querySelector('a[href="#experience"]').click();
-                    break;
-                case '4':
-                    e.preventDefault();
-                    document.querySelector('a[href="#publications"]').click();
-                    break;
-            }
+                    // Pop-in effect
+                    const detailSection = document.getElementById('detail-section');
+                    if (detailSection) {
+                        detailSection.style.opacity = '0';
+                        detailSection.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            detailSection.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                            detailSection.style.opacity = '1';
+                            detailSection.style.transform = 'translateY(0)';
+                        }, 200);
+                    }
+
+                    if (window.MathJax) MathJax.typeset();
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('detail-content').innerHTML = `<h3>Error: Content not found!</h3><p>Maybe the link is broken or the file doesn't exist.</p><a href="index.html">Back to Home</a>`;
+                });
         }
-    });
+    } else {
+        // Main Page Logic
+        marked.use({ mangle: false, headerIds: false })
+        section_names.forEach((name, idx) => {
+            fetch(content_dir + name + '.md')
+                .then(response => response.text())
+                .then(markdown => {
+                    const html = marked.parse(markdown);
+                    const element = document.getElementById(name + '-md');
+                    if (element) {
+                        element.innerHTML = html;
+                        // Pop-in effect
+                        element.closest('section').style.opacity = '0';
+                        element.closest('section').style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            element.closest('section').style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                            element.closest('section').style.opacity = '1';
+                            element.closest('section').style.transform = 'translateY(0)';
+                        }, idx * 150 + 500);
+                    }
+                }).then(() => {
+                    if (window.MathJax) MathJax.typeset();
+                })
+                .catch(error => console.log(error));
+        });
+    }
 
-    // 添加滚动进度条
+    // Brutalist Progress Bar
     const progressBar = document.createElement('div');
     progressBar.style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
         width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #ff6b9d, #4ecdc4, #a55eea);
-        z-index: 10001;
-        transition: width 0.1s ease;
+        height: 8px;
+        background: var(--accent-pink);
+        z-index: 10002;
+        border-bottom: 2px solid #000;
+        transition: width 0.1s linear;
     `;
     document.body.appendChild(progressBar);
 
     window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = (scrollTop / docHeight) * 100;
         progressBar.style.width = scrollPercent + '%';
     });
-
-    // 添加页面加载动画
-    window.addEventListener('load', () => {
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease';
-        setTimeout(() => {
-            document.body.style.opacity = '1';
-        }, 100);
-    });
-
-}); 
+});
