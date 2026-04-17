@@ -12,7 +12,11 @@ I'm currently pursuing a Master's degree in BUAA at the School of AI
 
 **Beihang University**, Master of Artificial Intelligence, School of Artificial Intelligence (2024.9 – 2027.6)  
 
+**北京航空航天大学** 人工智能学院 | 电子信息硕士（2024.09 – 2027.06）
+
 **Beihang University**, Bachelor of Transportation Engineering, School of Transportation Science and Engineering (2020.9 – 2024.6)   
+
+**北京航空航天大学** 交通科学与工程学院 | 交通运输学士（2020.09 – 2024.06）
 
 #### 🔬 **Research Interests**  
 

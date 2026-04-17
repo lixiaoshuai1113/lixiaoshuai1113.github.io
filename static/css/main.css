@@ -12,8 +12,8 @@
     --border-color: #000000;
     --border-width: 4px;
     --shadow-offset: 8px;
-    --font-main: "Comic Sans MS", "Comic Neue", "Chalkboard SE", cursive;
-    --font-display: "Comic Sans MS", "Comic Neue", cursive;
+    --font-main: "Comic Sans MS", "Comic Neue", "Noto Serif SC", serif;
+    --font-display: "Comic Sans MS", "Comic Neue", "Noto Serif SC", serif;
 }
 
 @keyframes entryUp {
@@ -302,10 +302,30 @@ a:hover {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 2rem auto;
+    margin: 2rem auto 0.5rem;
     border: var(--border-width) solid var(--border-color);
     box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--border-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Image Captions */
+.main-body img + em, 
+.main-body img + strong,
+.main-body .img-caption {
+    display: block;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 0.8rem;
+    margin-bottom: 2.5rem;
+    font-weight: 900;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.main-body img + em::before,
+.main-body img + strong::before {
+    content: '▲ ';
+    color: var(--accent-pink);
 }
 
 .main-body img:hover {

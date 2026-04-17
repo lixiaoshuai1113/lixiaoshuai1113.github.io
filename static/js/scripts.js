@@ -110,7 +110,11 @@ window.addEventListener('DOMContentLoaded', event => {
                 try {
                     const element = document.getElementById(key);
                     if (element) {
-                        element.innerHTML = yml[key];
+                        if (key.endsWith('-link')) {
+                            element.href = yml[key];
+                        } else {
+                            element.innerHTML = yml[key];
+                        }
                         
                         // Hero Title Typewriter (Home only)
                         if (key === 'top-section-bg-text' && !isDetailPage) {
